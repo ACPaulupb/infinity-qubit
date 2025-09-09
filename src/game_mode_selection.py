@@ -164,25 +164,25 @@ class GameModeSelection:
         # Mode information dictionary
         mode_info = {
             'tutorial': {
-                'title': '📚 Tutorial Mode',
+                'title': 'Tutorial Mode',
                 'description': 'Perfect for beginners! Learn quantum computing fundamentals through interactive lessons and guided exercises.',
                 'features': ['• Step-by-step quantum gate tutorials', '• Interactive circuit builder', '• Qubit visualization'],
                 'difficulty': 'Beginner'
             },
             'puzzle': {
-                'title': '🎮 Puzzle Mode',
+                'title': 'Puzzle Mode',
                 'description': 'Challenge yourself with quantum puzzles! Solve increasingly complex quantum circuit problems.',
                 'features': ['• 30+ quantum puzzles', '• Multiple difficulty levels', '• Scoring system'],
                 'difficulty': 'Intermediate'
             },
             'sandbox': {
-                'title': '🛠️ Sandbox Mode',
+                'title': 'Sandbox Mode',
                 'description': 'Unlimited creativity! Build and experiment with quantum circuits without restrictions.',
                 'features': ['• Free-form circuit design', '• Real quantum simulation', '• Visualize circuits in 3D'],
                 'difficulty': 'Advanced'
             },
             'learn_hub': {
-                'title': '🚀 Learn Hub',
+                'title': 'Learn Hub',
                 'description': 'Comprehensive learning center with courses, documentation, and advanced quantum concepts.',
                 'features': ['• Reference materials', '• Advanced algorithms', '• Research papers'],
                 'difficulty': 'All Levels'
@@ -314,13 +314,13 @@ class GameModeSelection:
         subtitle_font_size = max(14, int(self.window_width / 80))
 
         # Shadow title for glow effect
-        shadow_title = tk.Label(title_frame, text="🔬 Infinity Qubit",
+        shadow_title = tk.Label(title_frame, text="Infinity Qubit",
                             font=('Arial', title_font_size, 'bold'),
                             fg=palette['shadow_title_color'], bg=palette['background'])
         shadow_title.place(x=3, y=3)
 
         # Main title
-        title_label = tk.Label(title_frame, text="🔬 Infinity Qubit",
+        title_label = tk.Label(title_frame, text="Infinity Qubit",
                             font=('Arial', title_font_size, 'bold'),
                             fg=palette['title_color'], bg=palette['background'])
         title_label.pack()
@@ -357,7 +357,7 @@ class GameModeSelection:
         footer_frame.place(relx=0.5, rely=0.95, anchor='s', relwidth=0.9)
 
         # Enhanced exit button - relative positioning
-        exit_btn = tk.Button(footer_frame, text="❌ Exit Game",
+        exit_btn = tk.Button(footer_frame, text="Exit Game",
                             command=self.exit_game,
                             font=('Arial', max(10, int(self.window_width / 120)), 'bold'),
                             bg=palette['exit_button_color'], fg=palette['exit_text_color'],
@@ -415,22 +415,22 @@ class GameModeSelection:
         
         button_configs = [
             {
-                'title': '📚 Tutorial Mode',
+                'title': 'Tutorial Mode',
                 'command': self.start_tutorial_mode,
                 'mode_key': 'tutorial'
             },
             {
-                'title': '🎮 Puzzle Mode',
+                'title': 'Puzzle Mode',
                 'command': self.start_puzzle_mode,
                 'mode_key': 'puzzle'
             },
             {
-                'title': '🛠️ Sandbox Mode',
+                'title': 'Sandbox Mode',
                 'command': self.start_sandbox_mode,
                 'mode_key': 'sandbox'
             },
             {
-                'title': '🚀 Learn Hub',
+                'title': 'Learn Hub',
                 'command': self.start_learn_hub_mode,
                 'mode_key': 'learn_hub'
             }
@@ -529,18 +529,18 @@ class GameModeSelection:
 
     def start_tutorial_mode(self):
         """Start the tutorial mode"""
-        print("📚 Starting Tutorial Mode...")
+        print("Starting Tutorial Mode...")
         try:
             from tutorial import TutorialWindow
             self.stop_video()
             self.root.withdraw()
             TutorialWindow(self.root, self.return_to_main_menu)
         except ImportError as e:
-            print(f"❌ Error importing tutorial: {e}")
+            print(f"Error importing tutorial: {e}")
             messagebox.showerror("Import Error", f"Could not import tutorial module: {e}")
             self.root.deiconify()
         except Exception as e:
-            print(f"❌ Error starting tutorial: {e}")
+            print(f"Error starting tutorial: {e}")
             messagebox.showerror("Error", f"Failed to start tutorial: {e}")
             self.root.deiconify()
 
@@ -557,7 +557,7 @@ class GameModeSelection:
 
     def start_puzzle_mode(self):
         """Start the puzzle mode"""
-        print("📚 Starting Puzzle Mode...")
+        print("Starting Puzzle Mode...")
         self.stop_video()
         self.root.destroy()
         try:
@@ -566,15 +566,15 @@ class GameModeSelection:
             puzzle_app = PuzzleMode(puzzle_root)
             puzzle_root.mainloop()
         except ImportError:
-            print("❌ Puzzle mode module not found")
+            print("Puzzle mode module not found")
             messagebox.showerror("Error", "Puzzle mode module not available")
         except Exception as e:
-            print(f"❌ Error starting puzzle mode: {e}")
+            print(f"Error starting puzzle mode: {e}")
             messagebox.showerror("Error", f"Error starting puzzle mode: {str(e)}")
 
     def start_sandbox_mode(self):
         """Start the sandbox mode"""
-        print("🛠️ Starting Sandbox Mode...")
+        print("Starting Sandbox Mode...")
         self.stop_video()
         self.root.destroy()
         try:
@@ -583,15 +583,15 @@ class GameModeSelection:
             sandbox_app = SandboxMode(sandbox_root)
             sandbox_root.mainloop()
         except ImportError:
-            print("❌ Sandbox module not found")
+            print("Sandbox module not found")
             messagebox.showerror("Error", "Sandbox module not available")
         except Exception as e:
-            print(f"❌ Error starting sandbox: {e}")
+            print(f"Error starting sandbox: {e}")
             messagebox.showerror("Error", f"Error starting sandbox: {str(e)}")
 
     def start_learn_hub_mode(self):
         """Start the learn hub mode"""
-        print("🚀 Starting Learn Hub...")
+        print("Starting Learn Hub...")
         self.stop_video()
         self.root.destroy()
         try:
@@ -600,10 +600,10 @@ class GameModeSelection:
             learn_hub_app = LearnHub(learn_hub_root)
             learn_hub_root.mainloop()
         except ImportError:
-            print("❌ Learn Hub module not found")
+            print("Learn Hub module not found")
             messagebox.showerror("Error", "Learn Hub module not available")
         except Exception as e:
-            print(f"❌ Error starting Learn Hub: {e}")
+            print(f"Error starting Learn Hub: {e}")
             messagebox.showerror("Error", f"Error starting Learn Hub: {str(e)}")
 
     def stop_video(self):
@@ -620,7 +620,7 @@ class GameModeSelection:
 
     def exit_game(self):
         """Exit the game"""
-        print("👋 Exiting game...")
+        print("Exiting game...")
         self.play_sound()
         self.stop_video()
         self.root.quit()
